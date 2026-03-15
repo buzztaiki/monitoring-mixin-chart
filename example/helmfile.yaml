@@ -8,6 +8,7 @@ releases:
     namespace: monitoring
     set:
       - { name: defaultRules.create, value: false }
+      - { name: prometheus.prometheusSpec.ruleSelectorNilUsesHelmValues, value: false }
       - { name: grafana.defaultDashboardsEnabled, value: false }
       - { name: grafana.sidecar.dashboards.folderAnnotation, value: grafana_folder }
       - { name: grafana.sidecar.dashboards.provider.foldersFromFilesStructure, value: true }
@@ -20,7 +21,7 @@ releases:
     needs: [monitoring/kube-prometheus-stack]
     set:
       - { name: mixinName, value: kubernetes }
-      - { name: dashboard.annotations.grafana_folder, value: Kubernetes }
+      - { name: dashboard.folderName, value: Kubernetes }
 
   - name: node-exporter-mixin
     chart: ../chart
@@ -28,4 +29,4 @@ releases:
     needs: [monitoring/kube-prometheus-stack]
     set:
       - { name: mixinName, value: node-exporter }
-      - { name: dashboard.annotations.grafana_folder, value: "Node Exporter" }
+      - { name: dashboard.folderName, value: "Node Exporter" }

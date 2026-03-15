@@ -17,3 +17,5 @@ dashboard:
   annotations: {}
   markerLabel: grafana_dashboard
   markerLabelValue: "1"
+  folderAnnotation: grafana_folder
+  folderName: ""

@@ -10,6 +10,7 @@ metadata:
   name: {{ include "monitoring-mixin.fullname" . }}-{{ $name }}
   annotations:
     {{- with .Values.dashboard.annotations }}{{- toYaml . | nindent 4 }}{{- end }}
+    {{ .Values.dashboard.folderAnnotation }}: {{ .Values.dashboard.folderName | quote }}
   labels:
     {{- include "monitoring-mixin.labels" . | nindent 4 }}
     {{- with .Values.dashboard.labels }}{{- toYaml . | nindent 4 }}{{- end }}
