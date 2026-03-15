@@ -1,4 +1,4 @@
-module github.com/buzztaiki/sandbox/k8s/k8s-monitoring-with-mixin/monitoring-mixin
+module github.com/buzztaiki/monitoring-mixin-chart
 
 go 1.25.0
 
@@ -21,7 +21,6 @@ require (
 	github.com/fatih/color v1.18.0 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
-	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/google/go-jsonnet v0.21.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
@@ -29,7 +28,6 @@ require (
 	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jsonnet-bundler/jsonnet-bundler v0.6.0 // indirect
-	github.com/kr/pretty v0.3.1 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
