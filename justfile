@@ -35,17 +35,9 @@ check:
 fmt:
     find mixins -name '*.jsonnet' -o -name '*.libsonnet' | xargs go tool jsonnetfmt -i --
 
-# Generate README.md values section from chart/values.yaml
+# Generate chart/README.md from chart/values.yaml
 docs:
-    #!/bin/bash -e
-    go tool helm-docs -t values.md.gotmpl -o values.md
-    {
-      awk '!f{print} /<!-- helm-docs:start -->/{f=1}' README.md
-      cat chart/values.md
-      awk 'f{print} /<!-- helm-docs:end -->/{print; f=1}' README.md
-    } > README.tmp.md
-    mv README.tmp.md README.md
-    rm chart/values.md
+    go tool helm-docs
 
 # Render PrometheusRule alerts JSON for a mixin
 render_alerts mixin *args:
