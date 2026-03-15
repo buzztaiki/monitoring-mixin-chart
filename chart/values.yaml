@@ -1,33 +1,39 @@
-# Name of the mixin placed under generated/. e.g. kubernetes, node-exporter
+# -- Name of the mixin placed under generated/. e.g. kubernetes, node-exporter
 mixinName: ""
 
-# If true, use the release name as the full resource name, ignoring nameOverride/fullnameOverride
+# -- If true, use the release name as the full resource name, ignoring nameOverride/fullnameOverride
 useReleaseNameAsFullName: true
 
-# Override the resource name prefix
+# -- Override the resource name prefix
 nameOverride: ""
-# Override the full resource name
+# -- Override the full resource name
 fullnameOverride: ""
 
 # Settings for PrometheusRule resources
 rule:
+  # -- Extra labels for the recording rules PrometheusRule
   labels: {}
+  # -- Extra annotations for the recording rules PrometheusRule
   annotations: {}
 
 # Settings for AlertmanagerConfig resources
 alert:
+  # -- Extra labels for the alerting rules PrometheusRule
   labels: {}
+  # -- Extra annotations for the alerting rules PrometheusRule
   annotations: {}
 
 # Settings for Grafana dashboard ConfigMaps
 dashboard:
+  # -- Extra labels for dashboard ConfigMaps
   labels: {}
+  # -- Extra annotations for dashboard ConfigMaps
   annotations: {}
-  # Label key used by Grafana to discover dashboards
+  # -- Label key used by Grafana to discover dashboards
   markerLabel: grafana_dashboard
-  # Value for the markerLabel
+  # -- Value for the markerLabel
   markerLabelValue: "1"
-  # Annotation key used to specify the Grafana folder
+  # -- Annotation key used to specify the Grafana folder
   folderAnnotation: grafana_folder
-  # Grafana folder name to store dashboards in (empty means General)
+  # -- Grafana folder name to store dashboards in (empty means General)
   folderName: ""

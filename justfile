@@ -29,6 +29,9 @@ check:
 fmt:
     find mixins -name '*.jsonnet' -o -name '*.libsonnet' | xargs go tool jsonnetfmt -i --
 
+docs:
+    go tool helm-docs --chart-search-root=chart --output-file=../README.md
+
 render_alerts mixin *args:
     go tool jsonnet -J {{jsonnet_vendor}} {{args}} -e '(import "./mixins/{{mixin}}.libsonnet").prometheusAlerts'
 render_rules mixin *args:
