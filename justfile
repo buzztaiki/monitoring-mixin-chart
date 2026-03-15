@@ -37,7 +37,15 @@ fmt:
 
 # Generate README.md values section from chart/values.yaml
 docs:
-    go tool helm-docs --chart-search-root=chart --output-file=../README.md
+    #!/bin/bash -e
+    go tool helm-docs -t values.md.gotmpl -o values.md
+    {
+      awk '!f{print} /<!-- helm-docs:start -->/{f=1}' README.md
+      cat chart/values.md
+      awk 'f{print} /<!-- helm-docs:end -->/{print; f=1}' README.md
+    } > README.tmp.md
+    mv README.tmp.md README.md
+    rm chart/values.md
 
 # Render PrometheusRule alerts JSON for a mixin
 render_alerts mixin *args:
