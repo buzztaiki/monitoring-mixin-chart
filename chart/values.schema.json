@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "mixinName": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Name of the mixin placed under generated/. e.g. kubernetes, node-exporter"
+    },
+    "useReleaseNameAsFullName": {
+      "type": "boolean",
+      "description": "If true, use the release name as the full resource name, ignoring nameOverride/fullnameOverride"
+    },
+    "nameOverride": {
+      "type": "string",
+      "description": "Override the resource name prefix"
+    },
+    "fullnameOverride": {
+      "type": "string",
+      "description": "Override the full resource name"
+    },
+    "rule": {
+      "type": "object",
+      "description": "Settings for PrometheusRule resources",
+      "additionalProperties": false,
+      "properties": {
+        "labels": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "alert": {
+      "type": "object",
+      "description": "Settings for AlertmanagerConfig resources",
+      "additionalProperties": false,
+      "properties": {
+        "labels": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "dashboard": {
+      "type": "object",
+      "description": "Settings for Grafana dashboard ConfigMaps",
+      "additionalProperties": false,
+      "properties": {
+        "labels": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "annotations": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "markerLabel": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Label key used by Grafana to discover dashboards"
+        },
+        "markerLabelValue": {
+          "type": "string",
+          "description": "Value for the markerLabel"
+        },
+        "folderAnnotation": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Annotation key used to specify the Grafana folder"
+        },
+        "folderName": {
+          "type": "string",
+          "description": "Grafana folder name to store dashboards in (empty means General)"
+        }
+      }
+    }
+  }
+}
