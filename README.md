@@ -73,3 +73,7 @@ See `example/helmfile.yaml` for a helmfile-based example that installs both `kub
 | rule.annotations | object | `{}` | Extra annotations for the recording rules PrometheusRule |
 | rule.labels | object | `{}` | Extra labels for the recording rules PrometheusRule |
 | useReleaseNameAsFullName | bool | `true` | If true, use the release name as the full resource name, ignoring nameOverride/fullnameOverride |
+
+## License
+
+MIT
