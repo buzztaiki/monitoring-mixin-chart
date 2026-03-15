@@ -1,0 +1,19 @@
+mixinName: ""
+useReleaseNameAsFullName: true
+
+nameOverride: ""
+fullnameOverride: ""
+
+rule:
+  labels: {}
+  annotations: {}
+
+alert:
+  labels: {}
+  annotations: {}
+
+dashboard:
+  labels: {}
+  annotations: {}
+  markerLabel: grafana_dashboard
+  markerLabelValue: "1"
