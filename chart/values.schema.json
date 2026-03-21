@@ -25,6 +25,10 @@
       "description": "Settings for PrometheusRule resources",
       "additionalProperties": false,
       "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "If false, skip creating the recording rules PrometheusRule"
+        },
         "labels": {
           "type": "object",
           "additionalProperties": { "type": "string" }
@@ -40,6 +44,10 @@
       "description": "Settings for AlertmanagerConfig resources",
       "additionalProperties": false,
       "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "If false, skip creating the alerting rules PrometheusRule"
+        },
         "labels": {
           "type": "object",
           "additionalProperties": { "type": "string" }
@@ -55,6 +63,10 @@
       "description": "Settings for Grafana dashboard ConfigMaps",
       "additionalProperties": false,
       "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "If false, skip creating Grafana dashboard ConfigMaps"
+        },
         "labels": {
           "type": "object",
           "additionalProperties": { "type": "string" }
