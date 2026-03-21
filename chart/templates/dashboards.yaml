@@ -1,3 +1,4 @@
+{{- if .Values.dashboard.enabled }}
 {{- include "monitoring-mixin.requireMixinGenerated" . }}
 {{- $currentScope := . }}
 {{- range $path, $_ :=  .Files.Glob  (printf "generated/%s/dashboards/*.json" .Values.mixinName) }}
@@ -18,5 +19,6 @@ metadata:
 data:
   {{ base $path }}: |
     {{- .Files.Get $path | nindent 4 }}
+{{- end }}
 {{- end }}
 {{- end }}
